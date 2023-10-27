@@ -2,9 +2,10 @@ import {createServer} from 'node:http'
 import { createStudent, deleteStudent, getParsedParams, getStudents,getTemplate } from './utils/utils.js';
 import dotenv from 'dotenv';
 
+dotenv.config();
 
-const {APP_ENV, APP_PORT, APP_LOCALHOST} = process.env
-console.log(APP_ENV, APP_PORT, APP_LOCALHOST)
+const {APP_PORT, APP_ENV, APP_LOCALHOST} = process.env
+
 const server = createServer(async(req,res) =>{
 
     if(req.url === '/'){
@@ -61,6 +62,6 @@ const server = createServer(async(req,res) =>{
 
 
 
-server.listen(8888, () =>{
-    console.log('server listening')
+server.listen(APP_PORT, () =>{
+    console.log('listening on: http://'+ APP_LOCALHOST+":"+APP_PORT)
 })

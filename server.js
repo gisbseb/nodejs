@@ -56,10 +56,9 @@ const server = createServer(async(req,res) =>{
       }
     }
 
-   
-
     res.writeHead(404);
-    res.end("<p>404</p>");
+    const html = getTemplate("./view/404.pug");
+    res.end(html)
 })
 
 

@@ -4,9 +4,9 @@ form.add-student(action="/users/create" method="POST")
     h3 Ajouter un étudiant
     div.form-group
         label Name
-        input.form-control(name="name" type="text")
+        input.form-control(name="name" type="text" required)
     div.form-group
         label Date de naissance
-        input.form-control(name="birth" type="date")
-    div.form-group
-        button.btn(type="submit") Créer
+        input.form-control(name="birth" type="date" required)
+    
+    button.btn(type="submit") Créer

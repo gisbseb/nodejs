@@ -4,7 +4,7 @@ import querystring from "node:querystring";
 import { text } from "node:stream/consumers";
 import dayjs from "dayjs";
 export const getTemplate = (template, data) => {
-  console.log(data);
+
   const toRender = pug.renderFile(template, data, (err, html) => {
     if (err) throw err;
     return html;
@@ -15,7 +15,7 @@ export const getTemplate = (template, data) => {
 export const getParsedParams = async (data) =>{
     const params = await text(data);
     const parsedParams = querystring.parse(params);
-    console.log(parsedParams)
+    
     return parsedParams
 }
 
@@ -37,7 +37,7 @@ export const deleteStudent = (studentToRemove) => {
 
     let index = null
     for(let i = 0; i < students.length; i++){
-        console.log(students[i])
+   
         if(students[i].name == studentToRemove.name && students[i].birth === studentToRemove.birth){
             index = i
             break

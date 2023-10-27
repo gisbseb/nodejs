@@ -7,6 +7,10 @@
 body{
   
     font-family: 'Open-sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100vh;
 }
 
 a{
@@ -69,4 +73,8 @@ nav ul li:hover{
     position: absolute;
     left: 100%;
     top: 0;
+}
+
+.erreur{
+    text-align: center;
 }

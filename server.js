@@ -1,6 +1,10 @@
 import {createServer} from 'node:http'
 import { createStudent, deleteStudent, getParsedParams, getStudents,getTemplate } from './utils/utils.js';
+import dotenv from 'dotenv';
 
+
+const {APP_ENV, APP_PORT, APP_LOCALHOST} = process.env
+console.log(APP_ENV, APP_PORT, APP_LOCALHOST)
 const server = createServer(async(req,res) =>{
 
     if(req.url === '/'){
@@ -54,6 +58,7 @@ const server = createServer(async(req,res) =>{
     const html = getTemplate("./view/404.pug");
     res.end(html)
 })
+
 
 
 server.listen(8888, () =>{

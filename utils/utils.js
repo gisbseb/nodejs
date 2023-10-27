@@ -22,7 +22,8 @@ export const getParsedParams = async (data) =>{
 export const getStudents = () =>{
     
    students.forEach(student =>{
-         student.birth = dayjs(student.birth).format('DD/MM/YYYY')
+    
+         student.birth = dayjs(student.birth).format('DD/MM/YYYY') 
     })
    
     return students
@@ -30,7 +31,10 @@ export const getStudents = () =>{
 }
 
 export const createStudent = (student) => {
- students.push(student);
+
+  student.birth = dayjs(student.birth).format('YYYY-DD-MM')
+ students.push(JSON.parse(JSON.stringify(student)));
+
 };
 
 export const deleteStudent = (studentToRemove) => {

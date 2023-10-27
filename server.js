@@ -1,11 +1,7 @@
 import {createServer} from 'node:http'
 import { createStudent, deleteStudent, getParsedParams, getStudents,getTemplate } from './utils/utils.js';
-import { readFileSync } from 'node:fs';
-import querystring from "node:querystring";
-import { text } from "node:stream/consumers";
-const server = createServer(async(req,res) =>{
 
- 
+const server = createServer(async(req,res) =>{
 
     if(req.url === '/'){
            res.writeHead(200, { "Content-type": "text/html" });
@@ -13,17 +9,8 @@ const server = createServer(async(req,res) =>{
          res.end(html)
          return
     }
-     if(req.url === '/users'){
-        const students = getStudents()
-
-           res.writeHead(200, { "Content-type": "text/html" });
-         const html = getTemplate("./view/usersTemplate.pug", {students} );
-         res.end(html)
-         return
-    }
-
+    
     if(req.url === '/users/create' && req.method === "POST"){
-
        const parsedParams = await getParsedParams(req)
       if (parsedParams.name && parsedParams.birth) {
         createStudent(parsedParams);
@@ -39,8 +26,15 @@ const server = createServer(async(req,res) =>{
       }
     }
 
-    if(req.url === '/users/delete' && req.method === "POST"){
+     if(req.url === '/users'){
+        const students = getStudents()
+           res.writeHead(200, { "Content-type": "text/html" });
+         const html = getTemplate("./view/usersTemplate.pug", {students} );
+         res.end(html)
+         return
+    }
 
+    if(req.url === '/users/delete' && req.method === "POST"){
        const parsedParams = await getParsedParams(req)
       if (parsedParams.name && parsedParams.birth) {
         deleteStudent(parsedParams);

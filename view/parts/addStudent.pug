@@ -6,7 +6,7 @@ form.add-student(action="/users/create" method="POST" )
     div.form-group
         label Name 
         p#err-name(class="err-msg")
-        input.form-control(id="name" name="name" type="text" required")
+        input.form-control(id="name" name="name" type="text" required )
        
     div.form-group
         label Date de naissance
@@ -25,10 +25,10 @@ script.
     const form = document.querySelector('.add-student')
     let dateErr=document.querySelector('#err-date')
     let nameErr=document.querySelector('#err-name')
-    
+   
     form.addEventListener('submit',(e)=>{
         e.preventDefault()
-        let isError = false
+         let isError = false
         if(inputDate.value > today){
             dateErr.innerHTML ="Date de naissance incorrect"
             isError = true

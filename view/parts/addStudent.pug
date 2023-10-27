@@ -25,10 +25,10 @@ script.
     const form = document.querySelector('.add-student')
     let dateErr=document.querySelector('#err-date')
     let nameErr=document.querySelector('#err-name')
-    let isError = false
+    
     form.addEventListener('submit',(e)=>{
         e.preventDefault()
-        isError = false
+        let isError = false
         if(inputDate.value > today){
             dateErr.innerHTML ="Date de naissance incorrect"
             isError = true

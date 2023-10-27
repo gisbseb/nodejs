@@ -10,7 +10,7 @@ form.add-student(action="/users/create" method="POST" )
        
     div.form-group
         label Date de naissance
-            p#err-date(class="err-msg")
+        p#err-date(class="err-msg")
         input.form-control(id="date" name="birth" type="date" required)
         
     button.btn(type="submit") Créer
@@ -34,7 +34,7 @@ script.
             isError = true
             
         }else{
- dateErr.innerHTML =""
+            dateErr.innerHTML =""
         }
         if(!inputName.value.match(/^[A-Za-z\s-]+$/)){
         nameErr.innerHTML ="Nom invalide"

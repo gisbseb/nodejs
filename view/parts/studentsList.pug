@@ -1,0 +1,9 @@
+div#student-container
+    h3 Liste des étudiants
+    for student of students
+        div.student-card
+            p Nom: <strong>#{student.name}</strong>. Date de naissance: <strong>#{student.birth}</strong>
+                form.del-student(action="/users/delete" method="POST")
+                    input(name="name" type="hidden" value=student.name)
+                    input(name="birth" type="hidden" value=student.birth)
+                    button.btn(type="submit") X

@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  
+    font-family: 'Open-sans', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+     list-style-type: none;
+    display: flex;
+    gap: 2em;
+    padding: .5em 0;
+    justify-content: center;
+}
+nav ul li{
+    cursor: pointer;
+     text-transform: uppercase;
+    transition: opacity .3s;
+}
+nav ul li:hover{
+    opacity: .5;
+   
+}
+
+#student-container{
+    margin: auto;
+    text-align: center;
+    display: grid;
+    width: fit-content;
+    padding: 2em;
+}
+
+.student-card{
+    text-align: initial;
+ margin: .3em;
+}
+
+.add-student{
+    margin: auto;
+    width: fit-content;
+    
+}
+
+.form-group{
+    display: flex;
+    gap: .2em;
+    flex-direction: column;
+    padding: .5em 0;
+   
+}
+
+.student-card{
+ position: relative;
+}
+
+.del-student{
+    position: absolute;
+    left: 100%;
+    top: 0;
+}

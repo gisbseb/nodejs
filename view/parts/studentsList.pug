@@ -1,5 +1,7 @@
 div#student-container
     h3 Liste des étudiants
+    if(students.length === 0)
+        p.err-msg Aucun étudiant
     for student of students
         div.student-card
             p Nom: <strong>#{student.name}</strong>. Date de naissance: <strong>#{student.birth}</strong>

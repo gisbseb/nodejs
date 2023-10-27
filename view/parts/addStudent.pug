@@ -1,12 +1,44 @@
 
 
-form.add-student(action="/users/create" method="POST")
+
+form.add-student(action="/users/create" method="POST" )
     h3 Ajouter un étudiant
     div.form-group
-        label Name
-        input.form-control(name="name" type="text" required)
+        label Name 
+        p#err-name(class="err-msg")
+        input.form-control(id="name" name="name" type="text" required pattern="[A-Za-z\s-]+")
+       
     div.form-group
         label Date de naissance
-        input.form-control(name="birth" type="date" required)
-    
+            p#err-date(class="err-msg")
+        input.form-control(id="date" name="birth" type="date" required)
+        
     button.btn(type="submit") Créer
+
+    
+
+script.
+    const today = new Date().toLocaleDateString('fr-ca')
+    console.log(today)
+    const inputDate = document.querySelector('#date')
+    const inputName = document.querySelector('#name')
+    const form = document.querySelector('.add-student')
+    let dateErr=document.querySelector('#err-date')
+    let nameErr=document.querySelector('#err-name')
+    let isError = false
+    form.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        isError = false
+        if(inputDate.value > today){
+            dateErr.innerHTML ="Date de naissance incorrect"
+            isError = true
+        }
+        if(!inputName.value.match(/^[A-Za-z\s-]+$/)){
+        nameErr.innerHTML ="Nom invalide"
+            isError = true
+        }
+
+        if(!isError){
+        form.submit()
+        }
+    })

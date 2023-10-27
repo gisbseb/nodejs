@@ -32,10 +32,15 @@ script.
         if(inputDate.value > today){
             dateErr.innerHTML ="Date de naissance incorrect"
             isError = true
+            
+        }else{
+ dateErr.innerHTML =""
         }
         if(!inputName.value.match(/^[A-Za-z\s-]+$/)){
         nameErr.innerHTML ="Nom invalide"
             isError = true
+        }else{
+             nameErr.innerHTML =''
         }
 
         if(!isError){
